@@ -16,7 +16,7 @@ module Google
       channel = Google::Apis::CalendarV3::Channel.new(
         id: uuid,
         type: 'web_hook',
-        address: callback_url(host: Settings.host),
+        address: callback_url(host: ENV["HOST"]),
         token: { user_id: user_id }.to_json
       )
       calendar.watch_event('primary', channel)
